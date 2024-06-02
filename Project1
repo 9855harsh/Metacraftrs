@@ -1,0 +1,37 @@
+let nftStore = [];
+
+function mainNFT(name, creator, age) {
+    const nft = {
+        name: name,
+        creator: creator,
+        age: age,
+        timestamp: new Date().toISOString(),
+        transactionID: generateTransactionID()
+    };
+    nftStore.push(nft);
+}
+function generateTransactionID() {
+    return 'Devndra' + Math.random().toString(16).substring(2, 64);
+}
+function listNFTs() {
+    nftStore.forEach((nft, index) => {
+        console.log(`NFT ${index + 1}:`);
+        console.log(`Name: ${nft.name}`);
+        console.log(`Creator: ${nft.creator}`);
+        console.log(`Age: ${nft.age}`);
+        console.log(`Timestamp: ${nft.timestamp}`);
+        console.log(`Transaction ID: ${nft.transactionID}`);
+        console.log('---------------------------');
+    });
+}
+function getTotalSupply() {
+    console.log(`Total NFTs minted: ${nftStore.length}`);
+}
+mainNFT("AngleOne", "Harsh", "21");
+mainNFT("Upstock", "Apoorv", "21");
+mainNFT("CoinDcxgo", "Luffy", "23");
+
+listNFTs();
+
+
+getTotalSupply();
